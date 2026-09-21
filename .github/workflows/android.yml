@@ -24,6 +24,11 @@ jobs:
     - name: Install Buildozer
       run: pip install buildozer cython kivy
 
+    - name: Accept Android Licenses
+      run: |
+        echo "y" | yes | sdkmanager --licenses || true
+        # دستور بالا سعی میکنه لایسنس ها رو خودکار قبول کنه
+
     - name: Build with Buildozer
       run: buildozer -v android debug
 
